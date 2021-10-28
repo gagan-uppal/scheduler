@@ -12,11 +12,13 @@ import DayList from "components/DayList";
 //import interview
 import InterviewerListItem from "components/InterviewerListItem";
 import InterviewerList from "components/InterviewerList";
-//import Appointment
+//import Appointment                      
 import Appointment from "components/Appointment";
 import Header from "components/Appointment";
 import Empty from "components/Appointment";
 import Show from "components/Appointment";
+import Confirm from "components/Appointment";
+import Status from "components/Appointment"
 
 
 
@@ -169,8 +171,12 @@ storiesOf("InterviewerList", module)
   interviewer={interviewer}
   onEdit={action("onEdit")}
   onDelete={action("onDelete")}
- 
-  />
-  )
-
-  );
+ />))
+ .add("Confirm", () => (
+   <Confirm
+   message={"Delete the appointment?"}
+   onConfirm={action("onConfirm")}
+   onCancel={action("onCancel")} 
+   />
+  ))
+  .add("Status", () => <Status message="Deleting" />);
