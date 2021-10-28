@@ -6,14 +6,17 @@ import { action } from "@storybook/addon-actions";
 import "index.scss";
 
 import Button from "components/Button";
+//import Day
 import DayListItem from "components/DayListItem";
 import DayList from "components/DayList";
+//import interview
 import InterviewerListItem from "components/InterviewerListItem";
 import InterviewerList from "components/InterviewerList";
-
+//import Appointment
 import Appointment from "components/Appointment";
 import Header from "components/Appointment";
 import Empty from "components/Appointment";
+import Show from "components/Appointment";
 
 
 
@@ -160,5 +163,14 @@ storiesOf("InterviewerList", module)
   .add("Appointment with Time", () => <Appointment time="12pm" />)
   .add("Header", () => <Header time="12pm" />)
   .add("Empty", () => <Empty onAdd={action("onAdd")}/>)
+  .add("Show", () => (
+  <Show 
+  student={"Lydia Miller-Jones"}
+  interviewer={interviewer}
+  onEdit={action("onEdit")}
+  onDelete={action("onDelete")}
+ 
+  />
+  )
 
-;
+  );
