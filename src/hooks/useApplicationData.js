@@ -11,6 +11,23 @@ import { useEffect, useState } from "react";
 
   });
 
+  const updateSpots = function(state, appointments, id) {
+
+    const day = state.days.find(d => d.name === state.day);
+
+    let spots = 0;
+
+    for (const id of day.appointments) {
+      if(!appointments[id].interview) {
+        spots++;
+      }
+    }
+    const newDay = { ...day, spots };
+    const newDays = state.days.map(d => d.name === state.day ? newDay : d);
+    return newDays;
+
+  }
+
   useEffect(() => {
     //   axios.get('/api/days')
     //     .then((res) => {
@@ -46,7 +63,9 @@ import { useEffect, useState } from "react";
   
     return axios.put(`/api/appointments/${id}`, { interview })
       .then(() => {
-        setState({ ...state, appointments })
+        const days = updateSpots(state, appointments)
+
+        setState({ ...state, appointments, days })
       })
   };
 
@@ -61,7 +80,9 @@ import { useEffect, useState } from "react";
     };
     return axios.delete(`/api/appointments/${id}`)
       .then(() => {
-        setState({ ...state, appointments })
+        const days = updateSpots(state, appointments)
+
+        setState({ ...state, appointments, days })
       })
   }
 
