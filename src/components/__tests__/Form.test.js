@@ -6,8 +6,7 @@ import Form from "components/Appointment/Form";
 
 afterEach(cleanup);
 
-
-describe("Form", () => {
+  describe("Form", () => {
   const interviewers = [
     {
       id: 1,
@@ -43,26 +42,6 @@ describe("Form", () => {
     expect(onSave).not.toHaveBeenCalled();
   });
 
-  // it("calls onSave function when the name is defined", () => {
-  //   /* 1. Create the mock onSave function */
-  //   const onSave = jest.fn();
-  
-  //   /* 2. Render the Form with interviewers, name and the onSave mock function passed as an onSave prop */
-  //   const { getByText, queryByText } = render(
-  //     <Form
-  //       interviewers={interviewers}
-  //       onSave={onSave}
-  //       name="Lydia Miller-Jones"
-  //     />
-  //   );
-  
-  //   /* 3. Click the save button */
-  //   fireEvent.click(getByText("Save"));
-  
-  //   expect(queryByText(/student name cannot be blank/i)).toBeNull();
-  //   expect(onSave).toHaveBeenCalledTimes(1);
-  //   expect(onSave).toHaveBeenCalledWith("Lydia Miller-Jones", null);
-  // });
   it("can successfully save after trying to submit an empty student name", () => {
     const onSave = jest.fn();
     const { getByText, getByPlaceholderText, queryByText } = render(
@@ -85,6 +64,7 @@ describe("Form", () => {
     expect(onSave).toHaveBeenCalledTimes(1);
     expect(onSave).toHaveBeenCalledWith("Lydia Miller-Jones", 7);
   });
+
   it("calls onCancel and resets the input field", () => {
     const onCancel = jest.fn();
     const { getByText, getByPlaceholderText, queryByText } = render(
