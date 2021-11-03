@@ -14,9 +14,7 @@ import { useEffect, useState } from "react";
   const updateSpots = function(state, appointments, id) {
 
     const day = state.days.find(d => d.name === state.day);
-
     let spots = 0;
-
     for (const id of day.appointments) {
       if(!appointments[id].interview) {
         spots++;
@@ -29,12 +27,7 @@ import { useEffect, useState } from "react";
   }
 
   useEffect(() => {
-    //   axios.get('/api/days')
-    //     .then((res) => {
-    //       setDays(res.data)
-    //     })
-  
-    // }, [])
+    
     Promise.all([
       axios.get('/api/days'),
       axios.get('/api/appointments'),
@@ -88,4 +81,4 @@ import { useEffect, useState } from "react";
 
   return { state, setDay, bookInterview, cancelInterview };
 
- }
+ };

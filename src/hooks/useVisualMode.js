@@ -38,4 +38,4 @@ const back = () => {
     setHistory(newHistory);
 };}
 return { mode, transition, back };
-}
+};
