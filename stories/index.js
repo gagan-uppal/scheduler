@@ -12,7 +12,7 @@ import DayList from "components/DayList";
 //import interview
 import InterviewerListItem from "components/InterviewerListItem";
 import InterviewerList from "components/InterviewerList";
-//import Appointment                      
+//import Appointment components                    
 import Appointment from "components/Appointment";
 import Header from "components/Appointment";
 import Empty from "components/Appointment/Empty.js";
@@ -44,7 +44,7 @@ storiesOf("Button", module)
 
 
   //stories for DayListItem added
-  storiesOf("DayListItem", module) //Initiates Storybook and registers our DayListItem component
+  storiesOf("DayListItem", module) 
   .addParameters({
     backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
   }) // Provides the default background color for our component
@@ -219,4 +219,4 @@ storiesOf("InterviewerList", module)
       />
       <Appointment time="5pm" />
     </Fragment>
-  ))
+  ));
