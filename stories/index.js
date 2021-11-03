@@ -23,8 +23,6 @@ import Error from "components/Appointment/Error.js";
 import Form from "components/Appointment/Form.js";
 
 
-
-
 //stories for button added
 storiesOf("Button", module)
   .addParameters({
